@@ -1,0 +1,8 @@
+query todo($done: Boolean) {
+  todo(order_by: { id: asc }, where: { done: { _eq: $done } }) {
+    id
+    title
+    description
+    done
+  }
+}

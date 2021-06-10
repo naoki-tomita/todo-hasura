@@ -1,0 +1,17 @@
+mutation addTodo($title: String, $description: String, $done: Boolean) {
+  insert_todo(
+    objects: { title: $title, description: $description, done: $done }
+  ) {
+    returning {
+      id
+    }
+  }
+}
+
+mutation updateTodo($id: Int, $done: Boolean) {
+  update_todo(_set: { done: $done }, where: { id: { _eq: $id } }) {
+    returning {
+      id
+    }
+  }
+}
